@@ -112,11 +112,7 @@
 			
 			$date = date('Y-m-d', strtotime($Speech));
 			
-			if($date=="1970-01-01"){
-				$date="2018-06-15";
-				$Speech =" 15th june 2018";
-			}
-			
+						
 			$sql =" update xpo_delivery_details set rescheduled_date='".$date."', last_update=DATE_ADD(now(), INTERVAL '5:30' HOUR_MINUTE),  comments='Rescheduled' where Order_No = '".$order_number."' ";
 			file_put_contents("/tmp/query.php",$sql);
 			$base_obj->_Exe_Query($sql);
